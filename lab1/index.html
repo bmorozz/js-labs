@@ -9,7 +9,89 @@
   <p>Відкрий консоль браузера (F12), щоб побачити результати.</p>
 
   <script>
-    console.log("Lab 1 is working");
+    console.log("Використання: triangle(value1, type1, value2, type2)");
+    console.log('Типи: "leg", "hypotenuse", "adjacent angle", "opposite angle", "angle"');
+
+    function deg2rad(deg) {
+      return deg * Math.PI / 180;
+    }
+
+    function rad2deg(rad) {
+      return rad * 180 / Math.PI;
+    }
+
+    function triangle(v1, t1, v2, t2) {
+      let a, b, c, alpha, beta;
+
+      if (v1 <= 0 || v2 <= 0) {
+        return "Zero or negative input";
+      }
+
+      let value = [v1, v2];
+      let type = [t1, t2];
+
+      if (
+        (type[0] === "leg" && type[1] === "hypotenuse") ||
+        (type[1] === "leg" && type[0] === "hypotenuse")
+      ) {
+        let leg = type[0] === "leg" ? value[0] : value[1];
+        let hyp = type[0] === "hypotenuse" ? value[0] : value[1];
+
+        if (leg >= hyp) return "Leg must be smaller than hypotenuse";
+
+        a = leg;
+        c = hyp;
+        b = Math.sqrt(c * c - a * a);
+
+        alpha = rad2deg(Math.asin(a / c));
+        beta = 90 - alpha;
+      }
+
+      else if (
+        (type[0] === "opposite angle" && type[1] === "leg") ||
+        (type[1] === "opposite angle" && type[0] === "leg")
+      ) {
+        let angle = type[0] === "opposite angle" ? value[0] : value[1];
+        let leg = type[0] === "leg" ? value[0] : value[1];
+
+        if (angle <= 0 || angle >= 90) return "Angle must be acute";
+
+        alpha = angle;
+        beta = 90 - alpha;
+        a = leg;
+        c = a / Math.sin(deg2rad(alpha));
+        b = Math.sqrt(c * c - a * a);
+      }
+
+      else if (
+        (type[0] === "angle" && type[1] === "hypotenuse") ||
+        (type[1] === "angle" && type[0] === "hypotenuse")
+      ) {
+        let angle = type[0] === "angle" ? value[0] : value[1];
+        let hyp = type[0] === "hypotenuse" ? value[0] : value[1];
+
+        if (angle <= 0 || angle >= 90) return "Angle must be acute";
+
+        alpha = angle;
+        beta = 90 - alpha;
+        c = hyp;
+        a = c * Math.sin(deg2rad(alpha));
+        b = Math.sqrt(c * c - a * a);
+      }
+
+      else {
+        console.log("Невірна комбінація типів. Перечитайте інструкцію.");
+        return "failed";
+      }
+
+      console.log("a =", a);
+      console.log("b =", b);
+      console.log("c =", c);
+      console.log("alpha =", alpha);
+      console.log("beta =", beta);
+
+      return "success";
+    }
   </script>
 </body>
 </html>
