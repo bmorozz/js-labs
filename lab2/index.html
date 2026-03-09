@@ -7,14 +7,10 @@
 </head>
 <body>
     <h1>Лабораторна робота №2</h1>
-    <p>Відкрий консоль браузера (F12 → Console), щоб побачити результати виконання.</p>
 
     <script>
         console.log("=== ЛАБОРАТОРНА РОБОТА №2 ===");
 
-        // =========================================================
-        // 1.2.3 Створити car1 за допомогою new Object()
-        // =========================================================
         let car1 = new Object();
 
         car1.color = "blue";
@@ -27,7 +23,6 @@
         car1.tuning = true;
         car1["number of accidents"] = 0;
 
-        // 1.2.5 Додати метод drive
         car1.drive = function () {
             console.log("I am not driving at night");
         };
@@ -35,9 +30,7 @@
         console.log("car1 =", car1);
         car1.drive();
 
-        // =========================================================
-        // 1.2.4 Створити car2 за допомогою літерала об'єкта
-        // =========================================================
+
         let car2 = {
             color: "red",
             maxSpeed: 180,
@@ -49,7 +42,6 @@
             tuning: false,
             ["number of accidents"]: 2,
 
-            // 1.2.6 Додати метод drive
             drive: function () {
                 console.log("I can drive anytime");
             }
@@ -58,9 +50,7 @@
         console.log("car2 =", car2);
         car2.drive();
 
-        // =========================================================
-        // 1.2.7 Конструктор Truck
-        // =========================================================
+
         function Truck(color, weight, avgSpeed, brand, model) {
             this.color = color;
             this.weight = weight;
@@ -68,7 +58,6 @@
             this.brand = brand;
             this.model = model;
 
-            // 1.2.9 Метод trip у конструкторі
             this.trip = function () {
                 if (!this.driver) {
                     console.log("No driver assigned");
@@ -89,9 +78,7 @@
             };
         }
 
-        // =========================================================
-        // 1.2.8 Метод AssignDriver через prototype
-        // =========================================================
+
         Truck.prototype.AssignDriver = function (name, nightDriving, experience) {
             this.driver = {
                 name: name,
@@ -100,9 +87,7 @@
             };
         };
 
-        // =========================================================
-        // 1.2.10 Два об'єкти Truck
-        // =========================================================
+
         let truck1 = new Truck("white", 5000, 95.5, "Volvo", "FH16");
         let truck2 = new Truck("black", 4700, 88.3, "MAN", "TGX");
 
@@ -115,9 +100,7 @@
         truck1.trip();
         truck2.trip();
 
-        // =========================================================
-        // 1.2.12 - 1.2.15 Клас Square
-        // =========================================================
+
         class Square {
             constructor(a) {
                 this.a = a;
@@ -150,9 +133,7 @@
             }
         }
 
-        // =========================================================
-        // 1.2.16 - 1.2.17 Клас Rectangle
-        // =========================================================
+
         class Rectangle extends Square {
             constructor(a, b) {
                 super(a);
@@ -186,9 +167,7 @@
             }
         }
 
-        // =========================================================
-        // 1.2.18 - 1.2.19 Клас Rhombus
-        // =========================================================
+
         class Rhombus extends Square {
             constructor(a, alpha, beta) {
                 super(a);
@@ -223,7 +202,6 @@
                 console.log("Area:", this.a * this.a * Math.sin(this.beta * Math.PI / 180));
             }
 
-            // 1.2.22 Ґеттери та сеттери для Rhombus
             get side() {
                 return this.a;
             }
@@ -249,10 +227,7 @@
             }
         }
 
-        // =========================================================
-        // 1.2.20 - 1.2.21 Клас Parallelogram
-        // Створюємо на основі Rectangle
-        // =========================================================
+
         class Parallelogram extends Rectangle {
             constructor(a, b, alpha, beta) {
                 super(a, b);
@@ -288,18 +263,14 @@
             }
         }
 
-        // =========================================================
-        // 1.2.23 Виклик help для кожного класу
-        // =========================================================
+
         console.log("=== HELP METHODS ===");
         Square.help();
         Rectangle.help();
         Rhombus.help();
         Parallelogram.help();
 
-        // =========================================================
-        // 1.2.24 Створити по одному об'єкту кожного класу
-        // =========================================================
+
         let square1 = new Square(5);
         let rectangle1 = new Rectangle(6, 4);
         let rhombus1 = new Rhombus(5, 120, 60);
@@ -310,23 +281,18 @@
         rhombus1.info();
         parallelogram1.info();
 
-        // Додатково покажемо getter/setter
         console.log("=== Getter / Setter for Rhombus ===");
         console.log("Old side:", rhombus1.side);
         rhombus1.side = 7;
         console.log("New side:", rhombus1.side);
         rhombus1.info();
 
-        // =========================================================
-        // 1.2.25 Функція Triangular
-        // =========================================================
+
         function Triangular(a = 3, b = 4, c = 5) {
             return { a, b, c };
         }
 
-        // =========================================================
-        // 1.2.26 Створити 3 об'єкти Triangular
-        // =========================================================
+
         console.log("=== Triangular objects ===");
         let triangle1 = Triangular();
         let triangle2 = Triangular(6, 8, 10);
@@ -336,18 +302,14 @@
         console.log(triangle2);
         console.log(triangle3);
 
-        // =========================================================
-        // 1.2.27 Функція PiMultiplier
-        // =========================================================
+
         function PiMultiplier(multiplier) {
             return function () {
                 return Math.PI * multiplier;
             };
         }
 
-        // =========================================================
-        // 1.2.28 Три функції через PiMultiplier
-        // =========================================================
+
         console.log("=== PiMultiplier ===");
         let multiplyBy2 = PiMultiplier(2);
         let multiplyByTwoThirds = PiMultiplier(2 / 3);
@@ -357,9 +319,7 @@
         console.log("PI * 2/3 =", multiplyByTwoThirds());
         console.log("PI / 2 =", divideBy2());
 
-        // =========================================================
-        // 1.2.29 Функція Painter
-        // =========================================================
+
         function Painter(color) {
             return function (obj) {
                 if ("type" in obj) {
@@ -370,16 +330,12 @@
             };
         }
 
-        // =========================================================
-        // 1.2.30 Створити PaintBlue, PaintRed, PaintYellow
-        // =========================================================
+
         let PaintBlue = Painter("Blue");
         let PaintRed = Painter("Red");
         let PaintYellow = Painter("Yellow");
 
-        // =========================================================
-        // 1.2.31 Тестові об'єкти
-        // =========================================================
+
         let object1 = {
             maxSpeed: 280,
             type: "Sportcar",
