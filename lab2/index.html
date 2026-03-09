@@ -1,1 +1,418 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №2</title>
+</head>
+<body>
+    <h1>Лабораторна робота №2</h1>
+    <p>Відкрий консоль браузера (F12 → Console), щоб побачити результати виконання.</p>
 
+    <script>
+        console.log("=== ЛАБОРАТОРНА РОБОТА №2 ===");
+
+        // =========================================================
+        // 1.2.3 Створити car1 за допомогою new Object()
+        // =========================================================
+        let car1 = new Object();
+
+        car1.color = "blue";
+        car1.maxSpeed = 220;
+        car1.driver = {
+            name: "Bohdan Moroz",
+            category: "C",
+            ["personal limitations"]: "No driving at night"
+        };
+        car1.tuning = true;
+        car1["number of accidents"] = 0;
+
+        // 1.2.5 Додати метод drive
+        car1.drive = function () {
+            console.log("I am not driving at night");
+        };
+
+        console.log("car1 =", car1);
+        car1.drive();
+
+        // =========================================================
+        // 1.2.4 Створити car2 за допомогою літерала об'єкта
+        // =========================================================
+        let car2 = {
+            color: "red",
+            maxSpeed: 180,
+            driver: {
+                name: "Bohdan Moroz",
+                category: "B",
+                ["personal limitations"]: null
+            },
+            tuning: false,
+            ["number of accidents"]: 2,
+
+            // 1.2.6 Додати метод drive
+            drive: function () {
+                console.log("I can drive anytime");
+            }
+        };
+
+        console.log("car2 =", car2);
+        car2.drive();
+
+        // =========================================================
+        // 1.2.7 Конструктор Truck
+        // =========================================================
+        function Truck(color, weight, avgSpeed, brand, model) {
+            this.color = color;
+            this.weight = weight;
+            this.avgSpeed = avgSpeed;
+            this.brand = brand;
+            this.model = model;
+
+            // 1.2.9 Метод trip у конструкторі
+            this.trip = function () {
+                if (!this.driver) {
+                    console.log("No driver assigned");
+                    return;
+                }
+
+                let message = "Driver " + this.driver.name;
+
+                if (this.driver.nightDriving) {
+                    message += " drives at night";
+                } else {
+                    message += " does not drive at night";
+                }
+
+                message += " and has " + this.driver.experience + " years of experience";
+
+                console.log(message);
+            };
+        }
+
+        // =========================================================
+        // 1.2.8 Метод AssignDriver через prototype
+        // =========================================================
+        Truck.prototype.AssignDriver = function (name, nightDriving, experience) {
+            this.driver = {
+                name: name,
+                nightDriving: nightDriving,
+                experience: experience
+            };
+        };
+
+        // =========================================================
+        // 1.2.10 Два об'єкти Truck
+        // =========================================================
+        let truck1 = new Truck("white", 5000, 95.5, "Volvo", "FH16");
+        let truck2 = new Truck("black", 4700, 88.3, "MAN", "TGX");
+
+        truck1.AssignDriver("Bohdan Moroz", true, 5);
+        truck2.AssignDriver("Ivan Petrenko", false, 3);
+
+        console.log("truck1 =", truck1);
+        console.log("truck2 =", truck2);
+
+        truck1.trip();
+        truck2.trip();
+
+        // =========================================================
+        // 1.2.12 - 1.2.15 Клас Square
+        // =========================================================
+        class Square {
+            constructor(a) {
+                this.a = a;
+            }
+
+            static help() {
+                console.log("Square: a square is a quadrilateral with four equal sides and four right angles.");
+            }
+
+            length() {
+                console.log("Perimeter of square:", 4 * this.a);
+            }
+
+            square() {
+                console.log("Area of square:", this.a * this.a);
+            }
+
+            info() {
+                console.log("=== Square info ===");
+                console.log("Side 1:", this.a);
+                console.log("Side 2:", this.a);
+                console.log("Side 3:", this.a);
+                console.log("Side 4:", this.a);
+                console.log("Angle 1: 90");
+                console.log("Angle 2: 90");
+                console.log("Angle 3: 90");
+                console.log("Angle 4: 90");
+                console.log("Perimeter:", 4 * this.a);
+                console.log("Area:", this.a * this.a);
+            }
+        }
+
+        // =========================================================
+        // 1.2.16 - 1.2.17 Клас Rectangle
+        // =========================================================
+        class Rectangle extends Square {
+            constructor(a, b) {
+                super(a);
+                this.b = b;
+            }
+
+            static help() {
+                console.log("Rectangle: a rectangle is a quadrilateral with opposite sides equal and all angles equal to 90 degrees.");
+            }
+
+            length() {
+                console.log("Perimeter of rectangle:", 2 * (this.a + this.b));
+            }
+
+            square() {
+                console.log("Area of rectangle:", this.a * this.b);
+            }
+
+            info() {
+                console.log("=== Rectangle info ===");
+                console.log("Side 1:", this.a);
+                console.log("Side 2:", this.b);
+                console.log("Side 3:", this.a);
+                console.log("Side 4:", this.b);
+                console.log("Angle 1: 90");
+                console.log("Angle 2: 90");
+                console.log("Angle 3: 90");
+                console.log("Angle 4: 90");
+                console.log("Perimeter:", 2 * (this.a + this.b));
+                console.log("Area:", this.a * this.b);
+            }
+        }
+
+        // =========================================================
+        // 1.2.18 - 1.2.19 Клас Rhombus
+        // =========================================================
+        class Rhombus extends Square {
+            constructor(a, alpha, beta) {
+                super(a);
+                this.alpha = alpha;
+                this.beta = beta;
+            }
+
+            static help() {
+                console.log("Rhombus: a rhombus is a quadrilateral with four equal sides; opposite angles are equal.");
+            }
+
+            length() {
+                console.log("Perimeter of rhombus:", 4 * this.a);
+            }
+
+            square() {
+                let area = this.a * this.a * Math.sin(this.beta * Math.PI / 180);
+                console.log("Area of rhombus:", area);
+            }
+
+            info() {
+                console.log("=== Rhombus info ===");
+                console.log("Side 1:", this.a);
+                console.log("Side 2:", this.a);
+                console.log("Side 3:", this.a);
+                console.log("Side 4:", this.a);
+                console.log("Angle 1:", this.alpha);
+                console.log("Angle 2:", this.beta);
+                console.log("Angle 3:", this.alpha);
+                console.log("Angle 4:", this.beta);
+                console.log("Perimeter:", 4 * this.a);
+                console.log("Area:", this.a * this.a * Math.sin(this.beta * Math.PI / 180));
+            }
+
+            // 1.2.22 Ґеттери та сеттери для Rhombus
+            get side() {
+                return this.a;
+            }
+
+            set side(value) {
+                this.a = value;
+            }
+
+            get obtuseAngle() {
+                return this.alpha;
+            }
+
+            set obtuseAngle(value) {
+                this.alpha = value;
+            }
+
+            get acuteAngle() {
+                return this.beta;
+            }
+
+            set acuteAngle(value) {
+                this.beta = value;
+            }
+        }
+
+        // =========================================================
+        // 1.2.20 - 1.2.21 Клас Parallelogram
+        // Створюємо на основі Rectangle
+        // =========================================================
+        class Parallelogram extends Rectangle {
+            constructor(a, b, alpha, beta) {
+                super(a, b);
+                this.alpha = alpha;
+                this.beta = beta;
+            }
+
+            static help() {
+                console.log("Parallelogram: a parallelogram is a quadrilateral with opposite sides parallel and equal.");
+            }
+
+            length() {
+                console.log("Perimeter of parallelogram:", 2 * (this.a + this.b));
+            }
+
+            square() {
+                let area = this.a * this.b * Math.sin(this.beta * Math.PI / 180);
+                console.log("Area of parallelogram:", area);
+            }
+
+            info() {
+                console.log("=== Parallelogram info ===");
+                console.log("Side 1:", this.a);
+                console.log("Side 2:", this.b);
+                console.log("Side 3:", this.a);
+                console.log("Side 4:", this.b);
+                console.log("Angle 1:", this.alpha);
+                console.log("Angle 2:", this.beta);
+                console.log("Angle 3:", this.alpha);
+                console.log("Angle 4:", this.beta);
+                console.log("Perimeter:", 2 * (this.a + this.b));
+                console.log("Area:", this.a * this.b * Math.sin(this.beta * Math.PI / 180));
+            }
+        }
+
+        // =========================================================
+        // 1.2.23 Виклик help для кожного класу
+        // =========================================================
+        console.log("=== HELP METHODS ===");
+        Square.help();
+        Rectangle.help();
+        Rhombus.help();
+        Parallelogram.help();
+
+        // =========================================================
+        // 1.2.24 Створити по одному об'єкту кожного класу
+        // =========================================================
+        let square1 = new Square(5);
+        let rectangle1 = new Rectangle(6, 4);
+        let rhombus1 = new Rhombus(5, 120, 60);
+        let parallelogram1 = new Parallelogram(8, 5, 120, 60);
+
+        square1.info();
+        rectangle1.info();
+        rhombus1.info();
+        parallelogram1.info();
+
+        // Додатково покажемо getter/setter
+        console.log("=== Getter / Setter for Rhombus ===");
+        console.log("Old side:", rhombus1.side);
+        rhombus1.side = 7;
+        console.log("New side:", rhombus1.side);
+        rhombus1.info();
+
+        // =========================================================
+        // 1.2.25 Функція Triangular
+        // =========================================================
+        function Triangular(a = 3, b = 4, c = 5) {
+            return { a, b, c };
+        }
+
+        // =========================================================
+        // 1.2.26 Створити 3 об'єкти Triangular
+        // =========================================================
+        console.log("=== Triangular objects ===");
+        let triangle1 = Triangular();
+        let triangle2 = Triangular(6, 8, 10);
+        let triangle3 = Triangular(7, 7, 7);
+
+        console.log(triangle1);
+        console.log(triangle2);
+        console.log(triangle3);
+
+        // =========================================================
+        // 1.2.27 Функція PiMultiplier
+        // =========================================================
+        function PiMultiplier(multiplier) {
+            return function () {
+                return Math.PI * multiplier;
+            };
+        }
+
+        // =========================================================
+        // 1.2.28 Три функції через PiMultiplier
+        // =========================================================
+        console.log("=== PiMultiplier ===");
+        let multiplyBy2 = PiMultiplier(2);
+        let multiplyByTwoThirds = PiMultiplier(2 / 3);
+        let divideBy2 = PiMultiplier(1 / 2);
+
+        console.log("PI * 2 =", multiplyBy2());
+        console.log("PI * 2/3 =", multiplyByTwoThirds());
+        console.log("PI / 2 =", divideBy2());
+
+        // =========================================================
+        // 1.2.29 Функція Painter
+        // =========================================================
+        function Painter(color) {
+            return function (obj) {
+                if ("type" in obj) {
+                    console.log(color + " " + obj.type);
+                } else {
+                    console.log("No 'type' property occurred!");
+                }
+            };
+        }
+
+        // =========================================================
+        // 1.2.30 Створити PaintBlue, PaintRed, PaintYellow
+        // =========================================================
+        let PaintBlue = Painter("Blue");
+        let PaintRed = Painter("Red");
+        let PaintYellow = Painter("Yellow");
+
+        // =========================================================
+        // 1.2.31 Тестові об'єкти
+        // =========================================================
+        let object1 = {
+            maxSpeed: 280,
+            type: "Sportcar",
+            color: "magenta"
+        };
+
+        let object2 = {
+            type: "Truck",
+            avgSpeed: 90,
+            ["load capacity"]: 2400
+        };
+
+        let object3 = {
+            maxSpeed: 180,
+            color: "purple",
+            isCar: true
+        };
+
+        console.log("=== Painter ===");
+        console.log("Object 1:");
+        PaintBlue(object1);
+        PaintRed(object1);
+        PaintYellow(object1);
+
+        console.log("Object 2:");
+        PaintBlue(object2);
+        PaintRed(object2);
+        PaintYellow(object2);
+
+        console.log("Object 3:");
+        PaintBlue(object3);
+        PaintRed(object3);
+        PaintYellow(object3);
+    </script>
+</body>
+</html>
