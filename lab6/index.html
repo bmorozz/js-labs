@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна №6 — Lights Out</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Lights Out</h1>
+        <p class="subtitle">Лабораторна робота №6</p>
+
+        <div class="top-panel">
+            <label for="level">Оберіть варіант:</label>
+            <select id="level">
+                <option value="0">Варіант A (мінімум 7 ходів)</option>
+                <option value="1">Варіант B (мінімум 8 ходів)</option>
+                <option value="2">Варіант C (мінімум 9 ходів)</option>
+            </select>
+
+            <button id="newGameBtn">Нова гра</button>
+        </div>
+
+        <div class="info">
+            <p>Кількість ходів: <span id="moves">0</span></p>
+            <p id="message">Вимкніть усі лампочки</p>
+        </div>
+
+        <div id="board" class="board"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
