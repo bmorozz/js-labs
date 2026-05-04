@@ -1,0 +1,48 @@
+{
+  "categoryName": "Аксесуари",
+  "categoryDescription": "Корисні товари для роботи з технікою та комфортного користування.",
+  "items": [
+    {
+      "id": 1,
+      "name": "Wireless Mouse",
+      "shortname": "wirelessmouse",
+      "description": "Бездротова миша з ергономічним корпусом і точним сенсором.",
+      "price": 650
+    },
+    {
+      "id": 2,
+      "name": "Keyboard Pro",
+      "shortname": "keyboardpro",
+      "description": "Зручна клавіатура для набору тексту, навчання та програмування.",
+      "price": 1200
+    },
+    {
+      "id": 3,
+      "name": "USB-C Hub",
+      "shortname": "usbchub",
+      "description": "Адаптер із кількома портами для підключення додаткових пристроїв.",
+      "price": 950
+    },
+    {
+      "id": 4,
+      "name": "Laptop Stand",
+      "shortname": "laptopstand",
+      "description": "Підставка для ноутбука, яка покращує зручність робочого місця.",
+      "price": 780
+    },
+    {
+      "id": 5,
+      "name": "Headset Basic",
+      "shortname": "headsetbasic",
+      "description": "Гарнітура для онлайн-занять, дзвінків і прослуховування музики.",
+      "price": 890
+    },
+    {
+      "id": 6,
+      "name": "Power Bank 20K",
+      "shortname": "powerbank20k",
+      "description": "Портативний акумулятор для заряджання смартфонів та інших пристроїв.",
+      "price": 1450
+    }
+  ]
+}
