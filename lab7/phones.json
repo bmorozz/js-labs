@@ -1,0 +1,34 @@
+{
+  "categoryName": "Смартфони",
+  "categoryDescription": "Умовний каталог смартфонів різного призначення.",
+  "items": [
+    {
+      "id": 1,
+      "name": "Smart X1",
+      "shortname": "smartx1",
+      "description": "Смартфон із великим екраном, швидким процесором і якісною камерою.",
+      "price": 12900
+    },
+    {
+      "id": 2,
+      "name": "Photo Pro",
+      "shortname": "photopro",
+      "description": "Модель для фото та відео з покращеною стабілізацією зображення.",
+      "price": 21900
+    },
+    {
+      "id": 3,
+      "name": "Battery Max",
+      "shortname": "batterymax",
+      "description": "Смартфон із батареєю великої ємності для тривалої роботи.",
+      "price": 9900
+    },
+    {
+      "id": 4,
+      "name": "Mini Phone",
+      "shortname": "miniphone",
+      "description": "Компактний телефон для щоденного використання та спілкування.",
+      "price": 7600
+    }
+  ]
+}
