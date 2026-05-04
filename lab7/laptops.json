@@ -1,0 +1,41 @@
+{
+  "categoryName": "Ноутбуки",
+  "categoryDescription": "У цій категорії зібрані умовні моделі ноутбуків.",
+  "items": [
+    {
+      "id": 1,
+      "name": "OfficeBook 14",
+      "shortname": "officebook14",
+      "description": "Легкий ноутбук для офісної роботи, навчання та перегляду веб-сторінок.",
+      "price": 18500
+    },
+    {
+      "id": 2,
+      "name": "GamePro 15",
+      "shortname": "gamepro15",
+      "description": "Потужний ноутбук для ігор, графіки та складних програмних завдань.",
+      "price": 42500
+    },
+    {
+      "id": 3,
+      "name": "Student Air",
+      "shortname": "studentair",
+      "description": "Бюджетна модель для студентів із хорошою автономністю.",
+      "price": 14900
+    },
+    {
+      "id": 4,
+      "name": "Creator Max",
+      "shortname": "creatormax",
+      "description": "Ноутбук для дизайнерів, монтажу відео та роботи з мультимедіа.",
+      "price": 51900
+    },
+    {
+      "id": 5,
+      "name": "Travel Lite",
+      "shortname": "travellite",
+      "description": "Компактний ноутбук для подорожей і віддаленої роботи.",
+      "price": 22900
+    }
+  ]
+}
