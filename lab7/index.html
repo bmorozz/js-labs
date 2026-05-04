@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Лабораторна робота №7 — Ajax Catalog</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="index.html">Ajax Catalog</a>
+      <nav>
+        <a href="index.html">Додому</a>
+        <a href="#" id="catalogLink">Каталог</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Каталог умовних товарів</h1>
+      <p>
+        Односторінковий веб-застосунок, який динамічно завантажує категорії
+        та товари з JSON-файлів без перезавантаження сторінки.
+      </p>
+      <button id="showCatalogBtn">Переглянути каталог</button>
+    </section>
+
+    <section id="content" class="content">
+      <h2>Головна сторінка</h2>
+      <p>Натисніть «Каталог», щоб завантажити категорії товарів.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Лабораторна робота №7 — JavaScript, Ajax, JSON</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
