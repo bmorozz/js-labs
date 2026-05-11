@@ -52,8 +52,6 @@ header {
   cursor: pointer;
 }
 
-/* Carousel */
-
 main {
   max-width: 1000px;
   margin: 30px auto;
@@ -121,8 +119,6 @@ main {
   background: #222;
 }
 
-/* Images */
-
 .large-images,
 .medium-images {
   margin-top: 35px;
@@ -148,7 +144,6 @@ main {
   }
 }
 
-/* Medium devices */
 @media (max-width: 767px) {
   header {
     flex-wrap: wrap;
