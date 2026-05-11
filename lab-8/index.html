@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна робота №8</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">Adaptive Page</div>
+
+  <button class="burger" id="burgerBtn">☰</button>
+
+  <nav class="menu" id="menu">
+    <a href="#">🏠 Головна</a>
+    <a href="#">🖼 Галерея</a>
+    <a href="#">⭐ Послуги</a>
+    <a href="#">📞 Контакти</a>
+  </nav>
+</header>
+
+<main>
+  <section class="carousel">
+    <div class="slides" id="slides">
+      <img src="https://placehold.co/900x400/3498db/ffffff?text=Slide+1" alt="Slide 1">
+      <img src="https://placehold.co/900x400/e74c3c/ffffff?text=Slide+2" alt="Slide 2">
+      <img src="https://placehold.co/900x400/2ecc71/ffffff?text=Slide+3" alt="Slide 3">
+      <img src="https://placehold.co/900x400/9b59b6/ffffff?text=Slide+4" alt="Slide 4">
+    </div>
+
+    <button class="arrow left" id="prevBtn">❮</button>
+    <button class="arrow right" id="nextBtn">❯</button>
+
+    <div class="indicators" id="indicators">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+  <section class="large-images">
+    <h2>Зображення для Large-пристроїв</h2>
+    <div class="image-grid">
+      <img src="https://placehold.co/300x200/34495e/ffffff?text=Large+1" alt="">
+      <img src="https://placehold.co/300x200/16a085/ffffff?text=Large+2" alt="">
+      <img src="https://placehold.co/300x200/f39c12/ffffff?text=Large+3" alt="">
+    </div>
+  </section>
+
+  <section class="medium-images">
+    <h2>Зображення для Medium-пристроїв</h2>
+    <div class="image-grid">
+      <img src="https://placehold.co/300x200/c0392b/ffffff?text=Medium+1" alt="">
+      <img src="https://placehold.co/300x200/8e44ad/ffffff?text=Medium+2" alt="">
+      <img src="https://placehold.co/300x200/27ae60/ffffff?text=Medium+3" alt="">
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
